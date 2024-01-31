@@ -1,6 +1,6 @@
 pipeline{
 	agent any
-	stages{
+	stages {
 		stage('Build'){
 			steps{
 				echo "Build"
@@ -16,7 +16,8 @@ pipeline{
 				echo "Integration Test"
 			}
 		}
-	} post {
+	} 
+	post {
 		always {
 			echo 'This will always run'
 		}
