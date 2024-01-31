@@ -1,15 +1,4 @@
-// Scripted approch
-// node {
-// 	stage('Build') {
-// 		echo "Build"
-// 	}
-// 	stage('Test') {
-// 		echo "Test"
-// 	}
-// }
-
-// Declative approch
-pileline{
+pipeline{
 	agent any
 	stages{
 		stage('Build'){
@@ -26,6 +15,16 @@ pileline{
 			steps{
 				echo "Integration Test"
 			}
+		}
+	} post {
+		always {
+			echo 'This will always run'
+		}
+		success {
+			echo 'This will run in success case'
+		}
+		failure {
+			echo 'This will run in failure case'
 		}
 	}
 }
